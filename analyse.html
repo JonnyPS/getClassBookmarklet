@@ -37,6 +37,9 @@
     <script>
 
       (function() {
+
+        var items = [];
+
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
             // get class name
@@ -45,22 +48,47 @@
             console.log( class_name )
 
             var position = $( this ).position();
-            var class_name_width = $( this ).width();
-            var class_name_height = $( this ).height();
-
             // get top pos
             var class_name_top = position.top;
-            console.log( 'top = ' + class_name_top )
-
             // get left pos
             var class_name_left = position.left;
-            console.log( 'left = ' + class_name_left );
-
             // get width
-            console.log( 'width = ' + class_name_width );
-
+            var class_name_width = $( this ).width();
             // get height
-            console.log( 'height = ' + class_name_height )
+            var class_name_height = $( this ).height();
+
+            // console.log( 'top = ' + class_name_top )
+            // console.log( 'left = ' + class_name_left );
+            // console.log( 'width = ' + class_name_width );
+            // console.log( 'height = ' + class_name_height )
+            
+            
+            items.push( {
+              className: class_name,
+              elements: [
+                {
+                  top: class_name_top,
+                  left: class_name_left,
+                  width: class_name_width,
+                  height: class_name_height,
+                }
+              ]
+            }
+             );
+            console.log( items )
+            // // for ( prop in el ) {
+
+            //   console.log( 'el.' + prop )            
+            // }
+            
+            // for (var key in el) {
+            //   // if (Object.prototype.hasOwnProperty.call(el, key)) {
+            //     var val = el[key];
+            //     console.log( val )
+            //   // }
+            // }
+
+
           }
         });
       })();
