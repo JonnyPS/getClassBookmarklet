@@ -38,9 +38,29 @@
 
       (function() {
         $('*').each(function() {
-          if ($(this).hasClass('') === false ) {
-            var class_name = $(this).attr('class');
+          if ($( this ).hasClass( '' ) === false ) {
+            // get class name
+            var el = $( this );
+            var class_name = $( this ).attr( 'class' );
             console.log( class_name )
+
+            var position = $( this ).position();
+            var class_name_width = $( this ).width();
+            var class_name_height = $( this ).height();
+
+            // get top pos
+            var class_name_top = position.top;
+            console.log( 'top = ' + class_name_top )
+
+            // get left pos
+            var class_name_left = position.left;
+            console.log( 'left = ' + class_name_left );
+
+            // get width
+            console.log( 'width = ' + class_name_width );
+
+            // get height
+            console.log( 'height = ' + class_name_height )
           }
         });
       })();
