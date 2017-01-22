@@ -30,6 +30,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body class="iAmBody">
+    <img src="img.jpg" class="image" />
     <div class="el">
     <div class="box">
     <div class="square">
@@ -37,15 +38,19 @@
     <script>
 
       (function() {
-
+        // init an empty array in which our results will go in
         var items = [];
 
+        // iterate over every item in the dom to check if a class name is applied
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
             // get class name
-            var el = $( this );
+            // var el = $( this );
+
+            // assign names to the values of the class, and the elements co-ordinates and dimensions
             var class_name = $( this ).attr( 'class' );
-            console.log( class_name )
+
+            var element_type = $( this ).prop( 'nodeName' )
 
             var position = $( this ).position();
             // get top pos
@@ -56,15 +61,16 @@
             var class_name_width = $( this ).width();
             // get height
             var class_name_height = $( this ).height();
-
+            // console.log( element_type );
+            // console.log( 'class name = ' + class_name )
             // console.log( 'top = ' + class_name_top )
             // console.log( 'left = ' + class_name_left );
             // console.log( 'width = ' + class_name_width );
             // console.log( 'height = ' + class_name_height )
             
-            
             items.push( {
               className: class_name,
+              element_tag: element_type,
               elements: [
                 {
                   top: class_name_top,
@@ -75,22 +81,9 @@
               ]
             }
              );
-            console.log( items )
-            // // for ( prop in el ) {
-
-            //   console.log( 'el.' + prop )            
-            // }
-            
-            // for (var key in el) {
-            //   // if (Object.prototype.hasOwnProperty.call(el, key)) {
-            //     var val = el[key];
-            //     console.log( val )
-            //   // }
-            // }
-
-
           }
         });
+        console.log( items )
       })();
     </script>
   </body>
