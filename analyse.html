@@ -30,14 +30,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body class="iAmBody">
-    <img src="img.jpg" class="image" />
+    <!-- <img src="img.jpg" class="image" /> -->
     <div class="el">
     <div class="box">
-    <div class="square">
+    <div class="square box">
+    <div class="box">
+    <div class="box">
+    <div class="circle">
+    <div class="pink">
     </div>
     <script>
 
       (function() {
+
+        // get all class names
+        var names = [];
+        var uniqueNames = [];
+        var dupes = [];
+
         // init an empty array in which our results will go in
         var items = [];
 
@@ -49,17 +59,15 @@
 
             // assign names to the values of the class, and the elements co-ordinates and dimensions
             var class_name = $( this ).attr( 'class' );
-
+            // get element type
             var element_type = $( this ).prop( 'nodeName' )
 
             var position = $( this ).position();
-            // get top pos
+            // get top and left
             var class_name_top = position.top;
-            // get left pos
             var class_name_left = position.left;
-            // get width
+            // get width and height
             var class_name_width = $( this ).width();
-            // get height
             var class_name_height = $( this ).height();
             // console.log( element_type );
             // console.log( 'class name = ' + class_name )
@@ -68,27 +76,87 @@
             // console.log( 'width = ' + class_name_width );
             // console.log( 'height = ' + class_name_height )
             
-            items.push( {
-              className: class_name,
-              element_tag: element_type,
-              elements: [
-                {
-                  top: class_name_top,
-                  left: class_name_left,
-                  width: class_name_width,
-                  height: class_name_height,
-                }
-              ]
-            }
-             );
+            names.push( class_name );
+            names.sort();
+
+
+            // var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+            // $.each(names, function(i, el){
+            //     if( $.inArray(el, uniqueNames) === -1 ) {
+            //       uniqueNames.push(el);
+            //       var index = names.indexOf(el);
+
+            //       names.splice(index, 1)
+            //     }
+            // });
+
+
+            // removes duplicates from an array
+            // names = names.filter( function( item, index, inputArray ) {
+            //   return inputArray.indexOf(item) == index;
+            // });
+            // var res = names.split(" ");
+            // var deets = [];
+
+            // deets.push({
+            //   top: class_name_top,
+            //   left: class_name_left,
+            //   width: class_name_width,
+            //   height: class_name_height,
+            // });
+
+
+            // items.push( {
+            //   className: class_name,
+            //   element_tag: element_type,
+            //   // elements: deets,
+            //   }
+            // );
+
+
+
+            // elements: [
+            //     {
+            //       top: class_name_top,
+            //       left: class_name_left,
+            //       width: class_name_width,
+            //       height: class_name_height,
+            //       }
+            //     ]
+            //   }
+            // );
           }
         });
+<<<<<<< HEAD
         console.log( items )
         console.log( items.length )
 
         for ( var i=0; i < items.length; i++ ) {
           
         }
+=======
+        firstName = names[0];
+        console.log( firstName )
+        for ( var i=0; i < names.length; i++ ) {
+
+          currentName = names[i]; 
+          if ( firstName != currentName ) {
+            console.log( currentName )
+          }
+        }
+
+
+
+        // names.push( class_name );
+        // for (int i = 0; i < names.length; i++){
+        //   names[i] = if(!names[i].trim().equals("") || names[i]!=null)names[i].trim();
+        // }
+        // console.log( typeof res );
+        console.log( names );
+        console.log( uniqueNames );
+        console.log( dupes );
+        // console.log( items )
+>>>>>>> b9e2b08413af8bbf5e7fb3b3420b68a046bae40e
       })();
     </script>
   </body>
