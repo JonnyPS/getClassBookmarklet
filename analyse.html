@@ -2,30 +2,6 @@
   <head>
     <title>Site Analysing Bookmarklet</title>
     <style>
-      .el {
-        position: absolute;
-        top:10px;
-        left:10px;
-        height:120;
-        width:150px;
-        background-color: green;
-      }
-      .box {
-        position: absolute;
-        top:10px;
-        left:170px;
-        height:120;
-        width:150px;
-        background-color: blue;
-      }
-      .square {
-        position: absolute;
-        top:10px;
-        left:320px;
-        height:120;
-        width:150px;
-        background-color: yellow;
-      }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
@@ -38,116 +14,44 @@
     <div class="box">
     <div class="circle">
     <div class="pink">
+    <div class="circle">
     </div>
     <script>
 
       (function() {
-
-        // get all class names
-        var names = [];
-        var uniqueNames = [];
-        var dupes = [];
-
         // init an empty array in which our results will go in
         var items = [];
-
         // iterate over every item in the dom to check if a class name is applied
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
             // get class name
-            // var el = $( this );
-
-            // assign names to the values of the class, and the elements co-ordinates and dimensions
             var class_name = $( this ).attr( 'class' );
             // get element type
             var element_type = $( this ).prop( 'nodeName' )
-
+            // get the elements co-ordinates and dimensions
             var position = $( this ).position();
-            // get top and left
             var class_name_top = position.top;
             var class_name_left = position.left;
-            // get width and height
             var class_name_width = $( this ).width();
             var class_name_height = $( this ).height();
-            // console.log( element_type );
-            // console.log( 'class name = ' + class_name )
-            // console.log( 'top = ' + class_name_top )
-            // console.log( 'left = ' + class_name_left );
-            // console.log( 'width = ' + class_name_width );
-            // console.log( 'height = ' + class_name_height )
             
-            names.push( class_name );
-            names.sort();
-
-
-            // var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
-            // $.each(names, function(i, el){
-            //     if( $.inArray(el, uniqueNames) === -1 ) {
-            //       uniqueNames.push(el);
-            //       var index = names.indexOf(el);
-
-            //       names.splice(index, 1)
-            //     }
-            // });
-
-
-            // removes duplicates from an array
-            // names = names.filter( function( item, index, inputArray ) {
-            //   return inputArray.indexOf(item) == index;
-            // });
-            // var res = names.split(" ");
-            // var deets = [];
-
-            // deets.push({
-            //   top: class_name_top,
-            //   left: class_name_left,
-            //   width: class_name_width,
-            //   height: class_name_height,
-            // });
-
-
-            // items.push( {
-            //   className: class_name,
-            //   element_tag: element_type,
-            //   // elements: deets,
-            //   }
-            // );
-
-
-
-            // elements: [
-            //     {
-            //       top: class_name_top,
-            //       left: class_name_left,
-            //       width: class_name_width,
-            //       height: class_name_height,
-            //       }
-            //     ]
-            //   }
-            // );
+            // push values into objects 
+            items.push( {
+                className: class_name,
+                elements: [
+                        {
+                        top: class_name_top,
+                        left: class_name_left,
+                        width: class_name_width,
+                        height: class_name_height,
+                        }
+                    ]
+                }
+            );
           }
         });
-        firstName = names[0];
-        console.log( firstName )
-        for ( var i=0; i < names.length; i++ ) {
-
-          currentName = names[i]; 
-          if ( firstName != currentName ) {
-            console.log( currentName )
-          }
-        }
-
-
-
-        // names.push( class_name );
-        // for (int i = 0; i < names.length; i++){
-        //   names[i] = if(!names[i].trim().equals("") || names[i]!=null)names[i].trim();
-        // }
-        // console.log( typeof res );
-        console.log( names );
-        console.log( uniqueNames );
-        console.log( dupes );
-        // console.log( items )
+        // outpupt the objects to the console
+        console.log( items );
       })();
     </script>
   </body>
