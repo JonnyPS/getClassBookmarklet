@@ -63,31 +63,19 @@
             items.sort();
           }
         });
-
+        console.log( items )
         //removes duplicates from items
         items = items.filter( function( item, index, inputArray ) {
           return inputArray.indexOf(item) == index;
         });
-        // console.log(items)
   
         (function( class_name ) {
-          
           console.log( items )
-          // var arr = ["el", "box", "circle", "pink"];
-          for ( var i = 0; i < items.length; i++ ) {
-            
+          for ( var i = 0; i <= items.length; i++ ) {
             var current = items[i];
-            // var nextItem = i+1;
             $( '.' + current ).each(function() {
               console.log( current )
-              // console.log( nextItem )
               console.log( i )
-
-              // console.log( item[i] )
-              // console.log( $( this ).attr( 'class' ) )
-              // var position = $( this ).position();    // console.log( item )
-              // console.log( position.left )
-              // console.log( $( this ).width() )
             })
           }
         })();
