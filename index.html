@@ -2,6 +2,30 @@
   <head>
     <title>Site Analysing Bookmarklet</title>
     <style>
+    .el {
+      position: absolute;
+      top:10px;
+      left:10px;
+      height:120;
+      width:170px;
+      background-color: green;
+    }
+    .box {
+      position: absolute;
+      top:10px;
+      left:170px;
+      height:120;
+      width:150px;
+      background-color: blue;
+    }
+    .square {
+      position: absolute;
+      top:10px;
+      left:320px;
+      height:120;
+      width:170px;
+      background-color: yellow;
+    }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
@@ -18,41 +42,67 @@
     </div>
     <script>
 
-      (function() {
-        // init an empty array in which our results will go in
-        var items = [];
-        // iterate over every item in the dom to check if a class name is applied
-        $('*').each(function() {
-          if ($( this ).hasClass( '' ) === false ) {
-            // get class name
-            var class_name = $( this ).attr( 'class' );
-            // get element type
-            var element_type = $( this ).prop( 'nodeName' )
-            // get the elements co-ordinates and dimensions
-            var position = $( this ).position();
-            var class_name_top = position.top;
-            var class_name_left = position.left;
-            var class_name_width = $( this ).width();
-            var class_name_height = $( this ).height();
+      // (function() {
+      //   // init an empty array in which our results will go in
+      //   var items = [];
+      //   // iterate over every item in the dom to check if a class name is applied
+      //   $('*').each(function() {
+      //     if ($( this ).hasClass( '' ) === false ) {
+      //       // get class name
+      //       var class_name = $( this ).attr( 'class' );
+      //       // get element type
+      //       var element_type = $( this ).prop( 'nodeName' )
+      //       // get the elements co-ordinates and dimensions
+      //       var position = $( this ).position();
+      //       var class_name_top = position.top;
+      //       var class_name_left = position.left;
+      //       var class_name_width = $( this ).width();
+      //       var class_name_height = $( this ).height();
             
-            // push values into objects 
-            items.push( {
-                className: class_name,
-                elements: [
-                        {
-                        top: class_name_top,
-                        left: class_name_left,
-                        width: class_name_width,
-                        height: class_name_height,
-                        }
-                    ]
-                }
-            );
-          }
-        });
-        // output results to console
-        console.log( items );
-      })();
+      //       // push values into objects 
+      //       items.push( {
+      //           className: class_name,
+      //           elements: [
+      //                   {
+      //                   top: class_name_top,
+      //                   left: class_name_left,
+      //                   width: class_name_width,
+      //                   height: class_name_height,
+      //                   }
+      //               ]
+      //           }
+      //       );
+      //     }
+      //   });
+      //   // output results to console
+      //   console.log( items );
+      // })();
+
+        (function() {
+            // console.log( 'hello' )
+            var arr = ["el", "box", "circle", "pink"];
+            
+            for ( var i = 0; i < arr.length; i++ ) {
+                    console.log( $( this ).attr( 'class' ) )
+                
+                // console.log('hello')
+                var item = arr[i];
+                $( '.' + item ).each(function() {
+                    var position = $( this ).position();    // console.log( item )
+                    console.log( position.left )
+                    // console.log( $( this ).width() )
+                })
+            }
+
+            // var arr = ["el", "box", "circle", "pink"];
+            // a.forEach(function(entry) {
+            //     console.log(entry);
+            //     if ( entry == entry -1 ) {
+            //         console.log('dupe')
+            //     }
+            // });
+
+        })();
     </script>
   </body>
 </html>
