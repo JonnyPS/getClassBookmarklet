@@ -59,35 +59,27 @@
             var class_name_left = position.left;
             var class_name_width = $( this ).width();
             var class_name_height = $( this ).height();
-            
-            // // push values into objects 
-            // items.push( {
-            //     className: class_name,
-            //     // elements: [
-            // //         {
-            // //         top: class_name_top,
-            // //         left: class_name_left,
-            // //         width: class_name_width,
-            // //         height: class_name_height,
-            // //         }
-            // //     ]
-            //     }
-            // );
+            items.push( class_name )
+            items.sort();
           }
         });
+
+        //removes duplicates from items
+        items = items.filter( function( item, index, inputArray ) {
+          return inputArray.indexOf(item) == index;
+        });
+        // console.log(items)
+  
         (function( class_name ) {
           
-          // console.log( 'hello' )
-          var arr = ["el", "box", "circle", "pink"];
-          arr.sort();        
-          var j = 0;
-          for ( var i = 0; i < arr.length; i++ ) {
+          console.log( items )
+          // var arr = ["el", "box", "circle", "pink"];
+          for ( var i = 0; i < items.length; i++ ) {
             
-            var item = arr[i];
-            var nextItem = i+1;
-              // console.log( $( this ).attr( 'class' ) )
-            $( '.' + item ).each(function() {
-              console.log( item )
+            var current = items[i];
+            // var nextItem = i+1;
+            $( '.' + current ).each(function() {
+              console.log( current )
               // console.log( nextItem )
               console.log( i )
 
@@ -98,13 +90,8 @@
               // console.log( $( this ).width() )
             })
           }
-          
-        console.log( items );
-
         })();
-        // output results to console
-        // console.log( items );
-      
+
       })();
 
         
