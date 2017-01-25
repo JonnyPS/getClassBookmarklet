@@ -74,26 +74,34 @@
           return inputArray.indexOf(item) == index;
         });
   
+        $( '.' + current ).each(function( class_name_top, class_name_left, class_name_width, class_name_height ) {
+          console.log('top, left, width and height')
+          // var position = $( this ).position();
+          // var class_name_top = position.top;
+          // var class_name_left = position.left;
+          // var class_name_width = $( this ).width();
+          // var class_name_height = $( this ).height();
+          di.push({
+            top:class_name_top,
+            left:class_name_left,
+          })
+        });
+          console.log(di)
 
         // (function( class_name ) {
           console.log( items )
           // loop through the array and assign each item as a value to the className property on the obj
           for ( var i = 0; i < items.length; i++ ) {
-
-
-
-
             var current = items[i];
             var className = items[i];
             fin.push( {
               class__Name: className,
-              el: $( '.' + current ).each(function( class_name_top, class_name_left, class_name_width, class_name_height ) {
-                  console.log('top, left, width and height')
-                }),
+              el: di,
             });    
           }
+          
           console.log( fin )
-
+          
             // for every element class name in the dom that matches the item name in our items array, loop over and push it in to 
           //   $( '.' + current ).each(function() {
           //     var position = $( this ).position();
