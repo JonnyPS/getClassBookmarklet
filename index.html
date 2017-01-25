@@ -49,6 +49,7 @@
 
         // intit empty array for our final objects to go in
         var fin = [];
+        var di = [];
         // iterate over every item in the dom to check if a class name is applied
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
@@ -78,14 +79,18 @@
           console.log( items )
           // loop through the array and assign each item as a value to the className property on the obj
           for ( var i = 0; i < items.length; i++ ) {
+
+
+
+
             var current = items[i];
             var className = items[i];
             fin.push( {
               class__Name: className,
-              el: $( '.' + current ).each(function() {
-                  console.log( i )
+              el: $( '.' + current ).each(function( class_name_top, class_name_left, class_name_width, class_name_height ) {
+                  console.log('top, left, width and height')
                 }),
-            });
+            });    
           }
           console.log( fin )
 
