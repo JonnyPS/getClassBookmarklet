@@ -43,9 +43,12 @@
     </div>
     <script>
 
-      (function() {
+      (function( class_name ) {
         // init an empty array in which our results will go in
         var items = [];
+
+        // intit empty array for our final objects to go in
+        var fin = [];
         // iterate over every item in the dom to check if a class name is applied
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
@@ -63,22 +66,35 @@
             items.sort();
           }
         });
+
         console.log( items )
         //removes duplicates from items
         items = items.filter( function( item, index, inputArray ) {
           return inputArray.indexOf(item) == index;
         });
   
-        (function( class_name ) {
+        // (function( class_name ) {
           console.log( items )
-          for ( var i = 0; i <= items.length; i++ ) {
+        
+          for ( var i = 0; i < items.length; i++ ) {
             var current = items[i];
+            // console.log('class_name')
+            var className = items[i];
+            console.log( className )
+                      fin.push( {
+            class__Name: className,
+          })
             $( '.' + current ).each(function() {
               console.log( current )
               console.log( i )
             })
           }
-        })();
+
+
+
+          
+          console.log( fin )
+        // })();
 
       })();
 
