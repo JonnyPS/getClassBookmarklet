@@ -30,7 +30,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body class="iAmBody">
-    <!-- <img src="img.jpg" class="image" /> -->
     <div class="el">
     <div class="box">
     <div class="square box">
@@ -42,12 +41,9 @@
     <div class="circle">
     </div>
     <script>
-
       (function( class_name ) {
-        var k = 0;
         // init an empty array in which our results will go in
         var items = [];
-
         // intit empty array for our final objects to go in
         var fin = [];
         var di = [];
@@ -60,59 +56,31 @@
             items.sort();
           }
         });
+
         //removes duplicates from items
         items = items.filter( function( item, index, inputArray ) {
           return inputArray.indexOf(item) == index;
         });
   
-          // loop through the array and assign each item as a value to the className property on the obj
+        // loop through the items array and assign each item as a value to the className property on the obj
         for ( var i = 0; i < items.length; i++ ) {
-
           var current = items[i];
           console.log( current )
-
           if ( $( current ).hasClass( '.' + current ) === false ) {
-            // console.log( current.length)
             class_name_width = $( '.' + current ).width();
             fin.push({
               class___name: current,
-              elem: $( '.' + current ).each(function() {
+              elem: [$( '.' + current ).each(function() {
                 console.log( class_name_width )
-                di.push({
                 width: class_name_width
                 })
-              })
+              ]
             })
           }
-          
         }
-
-     
-        console.log(di)
+        // output results
         console.log( fin )
-        // setTimeout(fin.elem, 3000)
-
-
       })();
-
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
   </body>
 </html>
