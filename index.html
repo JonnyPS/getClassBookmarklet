@@ -42,11 +42,10 @@
     </div>
     <script>
       (function( class_name ) {
-        // init an empty array in which our results will go in
+        // init an empty array in which our class name results will go in
         var items = [];
         // intit empty array for our final objects to go in
         var fin = [];
-        var di = [];
         // iterate over every item in the dom to check if a class name is applied
         $('*').each(function() {
           if ($( this ).hasClass( '' ) === false ) {
@@ -65,13 +64,11 @@
         // loop through the items array and assign each item as a value to the className property on the obj
         for ( var i = 0; i < items.length; i++ ) {
           var current = items[i];
-          console.log( current )
           if ( $( current ).hasClass( '.' + current ) === false ) {
             class_name_width = $( '.' + current ).width();
             fin.push({
               class___name: current,
               elem: [$( '.' + current ).each(function() {
-                console.log( class_name_width )
                 width: class_name_width
                 })
               ]
